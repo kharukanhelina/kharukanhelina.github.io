@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hi, I'm Anhelina</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #fff;
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid #e8e8e8;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+  }
+
+  .nav-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #111;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: #111; }
+
+  .nav-cta {
+    border: 1px solid #111 !important;
+    color: #111 !important;
+    padding: 5px 14px;
+    border-radius: 3px;
+    transition: background 0.15s, color 0.15s !important;
+  }
+
+  .nav-cta:hover {
+    background: #111 !important;
+    color: #fff !important;
+  }
+
+  /* HERO */
+  #hero {
+    padding: 140px 48px 80px;
+    border-bottom: 1px solid #e8e8e8;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .hero-name {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 400;
+    color: #111;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .hero-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #444;
+    line-height: 1.65;
+    max-width: 560px;
+    margin-bottom: 16px;
+  }
+
+  .hero-passion {
+    font-size: 0.78rem;
+    color: #888;
+    max-width: 480px;
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* PROJECTS */
+  #projects {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 48px;
+  }
+
+  .section-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 32px;
+  }
+
+  .project-card {
+    border-top: 1px solid #e8e8e8;
+    padding: 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.15s;
+  }
+
+  .project-card:last-child { border-bottom: 1px solid #e8e8e8; }
+
+  .project-card.live:hover { opacity: 0.7; }
+
+  .project-card.coming-soon { opacity: 0.35; pointer-events: none; }
+
+  .project-left {}
+
+  .project-num {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 6px;
+  }
+
+  .project-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #111;
+  }
+
+  .project-status.live-badge { color: #2a7a4a; }
+
+  .status-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #2a7a4a;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .project-right {}
+
+  .project-desc {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 18px;
+  }
+
+  .skills-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 8px;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .skill {
+    font-size: 0.62rem;
+    padding: 3px 9px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #555;
+    background: #fafafa;
+  }
+
+  .skill.primary {
+    border-color: #111;
+    color: #111;
+    background: #fff;
+  }
+
+  /* README NOTE */
+  .readme-note {
+    margin-top: 12px;
+    font-size: 0.7rem;
+    color: #aaa;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .readme-note::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: #ddd;
+  }
+
+  /* CONNECT */
+  #connect {
+    border-top: 1px solid #e8e8e8;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .connect-headline {
+    font-family: 'EB Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #111;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .connect-sub {
+    font-size: 0.78rem;
+    color: #888;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .open-to {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .open-chip {
+    font-size: 0.62rem;
+    padding: 3px 10px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #888;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #e8e8e8;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .contact-link:first-child { border-top: 1px solid #e8e8e8; }
+  .contact-link:hover { opacity: 0.6; }
+
+  .contact-link-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .contact-type {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #bbb;
+  }
+
+  .contact-val {
+    font-size: 0.78rem;
+    color: #111;
+  }
+
+  .contact-arrow {
+    font-size: 0.8rem;
+    color: #ccc;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid #e8e8e8;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .footer-copy { font-size: 0.62rem; color: #bbb; }
+  .footer-built { font-size: 0.62rem; color: #bbb; }
+
+  /* RESPONSIVE */
+  @media (max-width: 680px) {
+    nav { padding: 0 20px; }
+    .nav-links li:not(:last-child) { display: none; }
+    #hero { padding: 100px 20px 56px; }
+    #projects { padding: 52px 20px; }
+    #connect { padding: 52px 20px; grid-template-columns: 1fr; gap: 36px; }
+    footer { padding: 16px 20px; }
+    .project-card { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-name">Hi, I'm Anhelina</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#connect" class="nav-cta">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <h1 class="hero-name">Hi, I'm Anhelina</h1>
+  <p class="hero-desc">
+    I use AI to build tools that make policy analysis faster and more accessible.
+  </p>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects">
+  <div class="section-label">Projects</div>
+
+  <!-- 01 -->
+  <a href="YOUR_GITHUB_URL/policy-brief" target="_blank" class="project-card live">
+    <div class="project-left">
+      <div class="project-num">01</div>
+      <div class="project-title">Policy Brief Generator</div>
+      <div class="project-status live-badge">
+        <div class="status-dot"></div>
+        Live
+      </div>
+    </div>
+    <div class="project-right">
+      <div class="project-desc">
+        This tool transforms policy text into a structured brief with executive summary, actor mapping, recommendations and sources. It also includes live follow-up Q&A.
+      </div>
+      <div class="skills-label">Skills</div>
+      <div class="skills-list">
+        <span class="skill">Claude API</span>
+        <span class="skill">Prompt Engineering</span>
+        <span class="skill">HTML / CSS</span>
+      </div>
+    </div>
+  </a>
+
+<!-- CONNECT -->
+<div id="connect">
+  <div>
+    <div class="connect-headline">Let's Connect</div>
+
+  </div>
+  <div class="contact-links">
+    <a href="https://linkedin.com/in/anhelina-kharuk-a1b20220b" target="_blank" class="contact-link">
+      <div class="contact-link-left">
+        <span class="contact-type">LinkedIn</span>
+        <span class="contact-val">linkedin.com/in/anhelina-kharuk-a1b20220b</span>
+      </div>
+      <span class="contact-arrow">→</span>
+    </a>
+    <a href="https://github.com/kharukanhelina" target="_blank" class="contact-link">
+      <div class="contact-link-left">
+        <span class="contact-type">GitHub</span>
+        <span class="contact-val">github.com/kharukanhelina</span>
+      </div>
+      <span class="contact-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Anhelina Kharuk</div>
+  <div class="footer-built">Built with HTML · CSS · Claude API</div>
+</footer>
+
+</body>
+</html>
